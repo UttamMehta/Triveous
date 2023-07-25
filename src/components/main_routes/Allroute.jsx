@@ -18,15 +18,17 @@ const Allroute = () => {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Landging_page />} />
+       
+       
+        <Route path='/' element={<Signup />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/news' element={<Landging_page />} />
+        {/* <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/single' element={<DocProfile />} />
         <Route path='/booking' element={<Doc4ui />} />
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/payment' element={<Payment />} />
-        <Route path='/user' element={<Pull />} />
+        <Route path='/user' element={<Pull />} /> */}
         {/* <Route path='/side' element={<Sidebar />} /> */}
         {/* Side bar */}
       </Routes>

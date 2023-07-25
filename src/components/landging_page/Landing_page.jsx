@@ -13,14 +13,14 @@ import REwor from './REwor';
 const Landing_page = () => {
   return (
     <div>
-      <Input />
+      {/* <Input /> */}
       <Allcards />
 
-      <Any_health />
-      {/* <AppointmentScheduler /> */}
+      {/* <Any_health />
+     
       <MultipleItems />
-      {/* <Rcent /> */}
-      <REwor></REwor>
+    
+      <REwor></REwor> */}
       <ControlledCarousel />
     </div>
   );

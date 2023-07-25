@@ -108,13 +108,13 @@ const Signup = () => {
         <div className="Appss">
           <div className="signupp">
             <div id="log-designs">
-              <NavLink className="logs" to="/Login">
+              <NavLink className="logs" to="/login">
                 Login
               </NavLink>
             </div>
 
             <div id="sign-designs">
-              <NavLink className="signs" to="/Signup">
+              <NavLink className="signs" to="/">
                 Register
               </NavLink>
             </div>

@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Cards = () => {
   const arrdata = [
@@ -36,6 +36,16 @@ const Cards = () => {
     },
   ];
 
+  const [arr,setArr]=useState([]);
+  const [country,Setcountry]=useState("in");
+  const [pageSize,setPageSize]=useState(4);
+  const [page,setPage]=useState(1);
+  const [q,setQ]=useState("");
+
+  useEffect(()=>{
+
+  },[country,pageSize,q,page])
+
   return (
     <div
       style={{
@@ -49,7 +59,7 @@ const Cards = () => {
         margin: 'auto',
         justifyContent: 'center',
       }}>
-      {arrdata.map((e) => {
+      {arr.map((e) => {
         return (
           <div
             style={{

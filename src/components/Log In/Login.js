@@ -87,12 +87,12 @@ const Login = () => {
         <div className="log-App">
           <div className="loginn">
             <div id="log-design">
-              <NavLink className="log" to="/Login">
+              <NavLink className="log" to="/login">
                 Login
               </NavLink>
             </div>
             <div id="sign-design">
-              <NavLink className="sign" to="/Signup">
+              <NavLink className="sign" to="/">
                 Register
               </NavLink>
             </div>
