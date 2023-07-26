@@ -40,11 +40,37 @@ const Cards = () => {
   const [country,Setcountry]=useState("in");
   const [pageSize,setPageSize]=useState(4);
   const [page,setPage]=useState(1);
-  const [q,setQ]=useState("");
+  const [q,setQ]=useState("everything");
+  const [loader,setLoader]=useState(true);
 
   useEffect(()=>{
+    setLoader(true);
+    if(country&&q)
+      getNews(`https://newsapi.org/v2/top-headlines?q=${q}country=${country}&pageSize=${pageSize}&page=${page}&apiKey=faa66530b2cf4a658d67d49a15a05023`);
+      else if(country)
+      getNews(`https://newsapi.org/v2/top-headlines?country=${country}&pageSize=${pageSize}&page=${page}&apiKey=faa66530b2cf4a658d67d49a15a05023`);
+    else
+    getNews(`https://newsapi.org/v2/top-headlines?q=${q}&pageSize=${pageSize}&page=${page}&apiKey=faa66530b2cf4a658d67d49a15a05023`)
 
   },[country,pageSize,q,page])
+
+  async function getNews(url) {
+    try {
+      let req = await fetch(url);
+      let res = await req.json();
+      if (res.error) alert(res.error);
+      else {
+        setArr(res.articles);
+        setLoader(false)
+      }
+      // console.log(res);
+    } catch (e) {
+      setLoader(true);
+      alert(e);
+    }
+  }
+
+  if (loader) return <h1 style={{ color: 'red' }}>404 Error</h1>;
 
   return (
     <div
@@ -60,6 +86,7 @@ const Cards = () => {
         justifyContent: 'center',
       }}>
       {arr.map((e) => {
+        const {name,id,author,title,url}=e.source;
         return (
           <div
             style={{
@@ -82,8 +109,8 @@ const Cards = () => {
               }}>
               <img
                 style={{ height: '100%', width: '100%' }}
-                src={e.dimg}
-                alt=''
+                src={url}
+                alt={id}
               />
             </div>
             <div
@@ -104,7 +131,7 @@ const Cards = () => {
                   textAlign: 'left',
                   paddingLeft: '10px',
                 }}>
-                {e.title}
+                {author}
               </div>
               <div
                 style={{
@@ -116,7 +143,7 @@ const Cards = () => {
                   textAlign: 'left',
                   paddingLeft: '10px',
                 }}>
-                {e.title2}
+                {title}
               </div>
             </div>
           </div>
